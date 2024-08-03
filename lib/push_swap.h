@@ -79,7 +79,7 @@ int grab_min(t_list *stacks, int *arr);
 int *bubble_sort(int *arr ,int size);
 char **parser(int ac, char  **av);
 void ft_swap(int *first, int *second);
-void check_duplicates(int *arr, int size , t_list *stacks);
+int check_duplicates(int *arr, int size , t_list *stacks);
 
 /* --------- */
 

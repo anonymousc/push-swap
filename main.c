@@ -24,14 +24,27 @@ int main(int ac, char **av)
 	stacks  = fill_stack(str);
 	arr = fill_arr(stacks);
 	stacks->vars.size = ft_listsize(stacks);
-	check_duplicates(arr , stacks->vars.size , stacks);
+	if (!check_duplicates(arr , stacks->vars.size , stacks))
+	{
+		free(stacks);
+		ft_free(str);
+		free(arr);
+		exit(1);
+	}
 	arr = bubble_sort(arr , stacks->vars.size);
 	stacks->vars.max = grab_max(stacks , arr , stacks->vars.size);
 	stacks->vars.min = grab_min(stacks , arr);
 	printf("stack_min_value[%d] || stacks_max_value[%d]\n", stacks->vars.min, stacks->vars.max);
+
+	/* testing part */
+
 	// 	int i = 0;
 	// 	while (i < ft_listsize(stacks))
 	// 	{
 		// printf("->%d\n", arr[i++]);
 	// 	}
+
+	/* ************* */
+	
+	ft_free(str);
 }

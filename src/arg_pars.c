@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 00:51:56 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 18:53:08 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/03 19:08:29 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,13 @@ int *bubble_sort(int *arr ,int size)
 	return (arr);
 }
 
-void check_duplicates(int *arr, int size , t_list *stacks)
+int check_duplicates(int *arr, int size , t_list *stacks)
 {
 	int i;
 	int j;
 
 	i = 0;
+	(void)stacks;
 	while (i < size)
 	{
 		j = 0;
@@ -81,11 +82,12 @@ void check_duplicates(int *arr, int size , t_list *stacks)
 			if (arr[j] == arr[j + 1])
 			{
 				write(1 , "Error\n" , 7);
-				exit (1);
+				return 0;
+				// exit (1);
 			}
 			j++;
 		}
 		i++;	
 	}
-	
+	return 1;
 }
