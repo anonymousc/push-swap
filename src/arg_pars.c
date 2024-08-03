@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 00:51:56 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 17:46:38 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/03 18:53:08 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ char **parser(int ac , char  **av)
 	s1 = ft_strjoin(ft_strdup(av[j++]), ft_strdup(" "));
 	while (av[j])
 	{
+		if (av[j][0] == '\0' )
+		{
+			write(1 , "Error\n" , 7);
+			free(s1);
+			exit (1);
+		}
 		s1 = ft_strjoin(s1, ft_strjoin(ft_strdup(av[j]), ft_strdup(" ")));
 		j++;
 	}
@@ -32,7 +38,7 @@ char **parser(int ac , char  **av)
 	free(s1);
 	return s;  
 }
-static void ft_swap(int *first, int *second)
+void ft_swap(int *first, int *second)
 {
 	int temp;
 
@@ -59,4 +65,27 @@ int *bubble_sort(int *arr ,int size)
 		i++;
 	}
 	return (arr);
+}
+
+void check_duplicates(int *arr, int size , t_list *stacks)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = 0;
+		while (j < size - i)
+		{
+			if (arr[j] == arr[j + 1])
+			{
+				write(1 , "Error\n" , 7);
+				exit (1);
+			}
+			j++;
+		}
+		i++;	
+	}
+	
 }

@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 00:51:59 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 17:43:47 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/03 18:50:56 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ t_list *fill_stack(char **ptr)
 	return (stacks);
 }
 
-int grab_max(t_list *stacks, int *arr , int *size)
+int grab_max(t_list *stacks, int *arr , int size)
 {
 	t_list *head;
 	head = stacks;
 	while (head)
 	{
-		if (arr[*size - 1] == head->data)
+		if (arr[size - 1] == head->data)
 		{
 			return (head->data);
 		}

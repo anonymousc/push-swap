@@ -69,7 +69,7 @@ char	**ft_split(char *s, char c);//need to move to an other file
 int    ft_ranger(int size);
 t_list *fill_stack(char **ptr);
 int	*fill_arr(t_list *stack);
-int grab_max(t_list *stacks, int *arr, int *size);
+int grab_max(t_list *stacks, int *arr, int size);
 int grab_min(t_list *stacks, int *arr);
 
 /* --------- */
@@ -78,6 +78,8 @@ int grab_min(t_list *stacks, int *arr);
 
 int *bubble_sort(int *arr ,int size);
 char **parser(int ac, char  **av);
+void ft_swap(int *first, int *second);
+void check_duplicates(int *arr, int size , t_list *stacks);
 
 /* --------- */
 
