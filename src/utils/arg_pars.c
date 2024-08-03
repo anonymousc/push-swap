@@ -6,14 +6,13 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 00:51:56 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 19:30:46 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/03 20:03:46 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib/push_swap.h"
 
-
-char **parser(int ac , char  **av)
+char	**parser(int ac, char **av)
 {
 	char	**s;
 	char	*s1;
@@ -23,34 +22,37 @@ char **parser(int ac , char  **av)
 		exit(0);
 	j = 1;
 	s1 = ft_strjoin(ft_strdup(av[j++]), ft_strdup(" "));
+	if (!av[1][0])
+		return (write(1 , "Error\n" , 7),exit(1),NULL);
 	while (av[j])
 	{
 		if (av[j][0] == '\0')
 		{
 			free(s1);
-			write(1 , "Error\n" , 7);
-			exit (1);
+			return (write(1 , "Error\n" , 7), exit (1), NULL);
 		}
 		s1 = ft_strjoin(s1, ft_strjoin(ft_strdup(av[j]), ft_strdup(" ")));
 		j++;
 	}
 	s = ft_split(s1, ' ');
 	free(s1);
-	return s;  
+	return (s);  
 }
+
 void ft_swap(int *first, int *second)
 {
-	int temp;
+	int	temp;
 
 	temp = *first;
 	*first = *second;
 	*second  = temp;
 }
+
 int *bubble_sort(int *arr ,int size)
 {
 
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < size - 1)
@@ -69,8 +71,8 @@ int *bubble_sort(int *arr ,int size)
 
 int check_duplicates(int *arr, int size , t_list *stacks)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	(void)stacks;
@@ -80,14 +82,10 @@ int check_duplicates(int *arr, int size , t_list *stacks)
 		while (j < size - i)
 		{
 			if (arr[j] == arr[j + 1])
-			{
-				write(1 , "Error\n" , 7);
-				return 0;
-				// exit (1);
-			}
+				return (write(1 , "Error\n" , 7) ,0);
 			j++;
 		}
 		i++;	
 	}
-	return 1;
+	return (1);
 }

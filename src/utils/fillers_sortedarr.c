@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 00:51:59 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 19:20:45 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/03 19:47:07 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	*fill_arr(t_list *stack)
 
 t_list *fill_stack(char **ptr)
 {
-
 	t_list *stacks ;
+	
 	int j;
 	
 	j = 0;
