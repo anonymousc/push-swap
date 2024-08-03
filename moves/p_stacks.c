@@ -1,8 +1,8 @@
 #include "../lib/push_swap.h"
 
-t_stacka *pusha(t_stacka *stacka)
+void p(t_list *stacks)
 {
-	
+	t_list *stack_b;
 
 	write(1, "pa\n", 3);
 }
