@@ -6,11 +6,11 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 00:51:59 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 19:05:39 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/03 19:20:45 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/push_swap.h"
+#include "../../lib/push_swap.h"
 
 int	*fill_arr(t_list *stack)
 {

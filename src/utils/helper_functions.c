@@ -6,11 +6,11 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 23:50:50 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 02:06:21 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/03 19:20:58 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/push_swap.h"
+#include "../../lib/push_swap.h"
 
 
 size_t	ft_strlen(const char *s)

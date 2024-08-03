@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/push_swap.h"
+#include "../../lib/push_swap.h"
 
 void	listaddback(t_list **stacks, t_list *new)
 {

@@ -2,9 +2,9 @@ NAME = push_swap
 
 CFLAGS = -Wall -Wextra -Werror 
 
-SRCS =  src/helper_functions_3.c src/helper_functions_2.c \
-	src/arg_pars.c src/fillers_sortedarr.c src/helper_functions.c src/linked_lists.c \
-	main.c 
+SRCS =  src/utils/helper_functions_3.c src/utils/helper_functions_2.c \
+	src/utils/arg_pars.c src/utils/fillers_sortedarr.c src/utils/helper_functions.c src/utils/linked_lists.c \
+	src/main.c
 
 OBJS = $(SRCS:.c=.o)
 

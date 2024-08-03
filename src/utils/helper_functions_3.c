@@ -6,11 +6,11 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 02:42:09 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 02:48:09 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/03 19:20:54 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/push_swap.h"
+#include "../../lib/push_swap.h"
 
 char	**ft_split(char *s, char c)
 {

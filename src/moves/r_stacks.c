@@ -1,4 +1,4 @@
-#include "../lib/push_swap.h"
+#include "../../lib/push_swap.h"
 
 void r(t_list **head)
 {
