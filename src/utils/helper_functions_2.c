@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:10:18 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 19:20:50 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/03 19:37:23 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,14 @@ long ft_atoi(char *str)
 	}
 	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 		res = (res * 10) + str[i++] - '0';
+	if (res > INT_MAX || res < INT_MIN)
+	{
+		write(1, "Error\n" , 7);
+		exit(1);
+	}
 	return (res * sign);
 }
+
 void	ft_free(char **str)
 {
 	int	i;
@@ -72,6 +78,7 @@ void	ft_free(char **str)
 		free(str);
 	}
 }
+
 size_t	ft_countword(char *s, char c)
 {
 	size_t	count;
@@ -117,5 +124,3 @@ char	**splitter(char *s, char c, int i)
 	}
 	return (lst[i] = NULL,lst);
 }
-
-

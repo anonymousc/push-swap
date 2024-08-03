@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 00:51:56 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 19:19:21 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/03 19:30:46 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ char **parser(int ac , char  **av)
 	s1 = ft_strjoin(ft_strdup(av[j++]), ft_strdup(" "));
 	while (av[j])
 	{
-		if (av[j][0] == '\0' )
+		if (av[j][0] == '\0')
 		{
-			write(1 , "Error\n" , 7);
 			free(s1);
+			write(1 , "Error\n" , 7);
 			exit (1);
 		}
 		s1 = ft_strjoin(s1, ft_strjoin(ft_strdup(av[j]), ft_strdup(" ")));
