@@ -83,8 +83,19 @@ int check_duplicates(int *arr, int size , t_list *stacks);
 
 /* --------- */
 
+/* algo_utils.c */
+
+void sort_2(t_list **stack);
+void sort_3(t_list **stack);
+void sort_4(t_list **stack);
+void sort_5(t_list **stack);
+
+/* ------------- */
+
 void s(t_list **stacks);
 void rr(t_list **stacks);
+void sort_5(t_list **stack);
+t_list *ft_check(t_list *stacks , int len);
 
 /* definitions to use */
 

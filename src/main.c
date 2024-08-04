@@ -34,6 +34,7 @@ int main(int ac, char **av)
 	arr = bubble_sort(arr , stacks->vars.size);
 	stacks->vars.max = grab_max(stacks , arr , stacks->vars.size);
 	stacks->vars.min = grab_min(stacks , arr);
+	stacks = ft_check(stacks , stacks->vars.size);
 	printf("stack_min_value[%d] || stacks_max_value[%d]\n", stacks->vars.min, stacks->vars.max);
 
 	/* testing part */
@@ -43,6 +44,12 @@ int main(int ac, char **av)
 	// 	{
 		// printf("->%d\n", arr[i++]);
 	// 	}
+	// 	int i = 0;
+		// while (stacks)
+		// {
+		// 	printf("->%d\n", stacks->data);
+		// 	stacks = stacks->next;
+		// }
 
 	/* ************* */
 	

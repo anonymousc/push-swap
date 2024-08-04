@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:10:18 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 19:42:42 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/04 14:16:18 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,13 @@ long ft_atoi(char *str)
 	}
 	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 		res = (res * 10) + str[i++] - '0';
-	if (res > INT_MAX || res < INT_MIN || str[i] != '\0')
+	res = res * sign;
+	if (res > INT_MAX || res  < INT_MIN  || str[i] != '\0')
 	{
 		write(1, "Error\n" , 7);
 		exit(1);
 	}
-	return (res * sign);
+	return (res);
 }
 
 void	ft_free(char **str)
