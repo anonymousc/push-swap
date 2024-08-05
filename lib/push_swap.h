@@ -36,6 +36,7 @@ typedef struct		s_list{
 	int				data;
 	struct s_list	*next;
 }					t_list;
+
 t_list *listnew(int data);
 void listaddfront(t_list **stacks, t_list *new);
 void listaddback(t_list **stacks, t_list *new);
@@ -50,6 +51,7 @@ void ft_free(char **str);
 long ft_atoi(char *str);
 char	**splitter(char *s, char c, int i);
 size_t	ft_countword(char *s, char c);
+void free_stack(t_list **stack);
 
 /* ------------------- */
 
@@ -69,8 +71,9 @@ char	**ft_split(char *s, char c);//need to move to an other file
 int    ft_ranger(int size);
 t_list *fill_stack(char **ptr);
 int	*fill_arr(t_list *stack);
-int grab_max(t_list *stacks, int *arr, int size);
-int grab_min(t_list *stacks, int *arr);
+int grab_max(t_list *stacks);
+int grab_min(t_list *stacks);
+t_list *listlast(t_list *stack_a);
 
 /* --------- */
 
@@ -85,17 +88,23 @@ int check_duplicates(int *arr, int size , t_list *stacks);
 
 /* algo_utils.c */
 
-void sort_2(t_list **stack);
-void sort_3(t_list **stack);
-void sort_4(t_list **stack);
-void sort_5(t_list **stack);
-
+void sort_2(t_list **stack_a);
+void sort_3(t_list **stack_a  , int size);
+void sort_4(t_list **stack_a , t_list ** stack_b , int size);
+void sort_5(t_list **stack_a, t_list **stack_b , int size);
+int is_sorted(t_list *stack);
 /* ------------- */
+void	min_to_top(t_list **stack_a);
+
 
 void s(t_list **stacks);
-void rr(t_list **stacks);
-void sort_5(t_list **stack);
-t_list *ft_check(t_list *stacks , int len);
+void rr(t_list **head);
+void r(t_list **head);
+t_list *ft_check(t_list *stack_a, t_list *stack_b , int len);
+void pb(t_list **stack_a, t_list **stack_b);
+void pa(t_list **stack_a, t_list **stack_b);
+void show_list1(t_list *stack , int howfar);
+void show_list(t_list *stack);
 
 /* definitions to use */
 

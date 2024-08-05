@@ -14,7 +14,7 @@
 
 void	listaddback(t_list **stacks, t_list *new)
 {
-	t_list *head;
+	t_list	*head;
 
 	head = *stacks;
 	if (!head)
@@ -41,12 +41,16 @@ int	ft_listsize(t_list *head)
 	return (i);
 }
 
-void	listaddfront(t_list **stacks, t_list *new)
+void	listaddfront(t_list **stack, t_list *new)
 {
-	if (!*stacks)
+	if (!*stack)
+	{
+		*stack = new;
+		(*stack)->next = NULL;
 		return ;
-	new->next = *stacks;
-	*stacks = new;
+	}
+	new->next = *stack;
+	*stack = new;
 }
 
 t_list	*listnew(int data)
@@ -57,3 +61,20 @@ t_list	*listnew(int data)
 	return (stacks);
 }
 
+t_list *listlast(t_list *stack_a)
+{
+	while (stack_a && stack_a->next)
+		stack_a = stack_a->next;
+	return stack_a;
+}
+
+void free_stack(t_list **stack)
+{
+	t_list *tmp = *stack;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+}

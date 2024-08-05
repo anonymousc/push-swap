@@ -10,5 +10,5 @@ void r(t_list **head)
 	tmp->next = (*head);
 	*head = (*head)->next;
 	tmp->next->next = NULL;
-
+	write(1, "ra\n" , 3);
 }

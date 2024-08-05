@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 02:42:09 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 19:20:54 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/05 07:07:57 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,20 @@ int	ft_ranger(int size)
         return (35);
     else
         return (45);
+}
+
+int is_sorted(t_list *stack)
+{
+    t_list *current = stack;
+    
+    while (current && current->next) 
+    {
+        if (current->data > current->next->data) 
+        {
+            return 0;  
+        }
+        current = current->next;
+    }
+    
+    return 1;
 }

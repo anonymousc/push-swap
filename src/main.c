@@ -15,43 +15,26 @@
 
 int main(int ac, char **av)
 {
-	t_list *stacks;
-	char **str;
-	int *arr;
+	t_list	*stack_a;
+	t_list	*stack_b;
+	char	**str;
+	int		*arr;
 
-
+	stack_b = NULL;
 	str = parser(ac ,av);
-	stacks  = fill_stack(str);
-	arr = fill_arr(stacks);
-	stacks->vars.size = ft_listsize(stacks);
-	if (!check_duplicates(arr , stacks->vars.size , stacks))
+	stack_a  = fill_stack(str);
+	arr = fill_arr(stack_a);
+	stack_a->vars.size = ft_listsize(stack_a);
+	if (!check_duplicates(arr , stack_a->vars.size , stack_a) || is_sorted(stack_a))
 	{
-		free(stacks);
 		ft_free(str);
+		free_stack(&stack_a);
 		free(arr);
 		exit(1);
 	}
-	arr = bubble_sort(arr , stacks->vars.size);
-	stacks->vars.max = grab_max(stacks , arr , stacks->vars.size);
-	stacks->vars.min = grab_min(stacks , arr);
-	stacks = ft_check(stacks , stacks->vars.size);
-	printf("stack_min_value[%d] || stacks_max_value[%d]\n", stacks->vars.min, stacks->vars.max);
-
-	/* testing part */
-
-	// 	int i = 0;
-	// 	while (i < ft_listsize(stacks))
-	// 	{
-		// printf("->%d\n", arr[i++]);
-	// 	}
-	// 	int i = 0;
-		// while (stacks)
-		// {
-		// 	printf("->%d\n", stacks->data);
-		// 	stacks = stacks->next;
-		// }
-
-	/* ************* */
-	
+	arr = bubble_sort(arr , stack_a->vars.size);
+	stack_a = ft_check(stack_a , stack_b, stack_a->vars.size);
+	free(arr);
+	free_stack(&stack_a);
 	ft_free(str);
 }

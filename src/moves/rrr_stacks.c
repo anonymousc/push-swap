@@ -2,15 +2,20 @@
 
 void rr(t_list **head)
 {
-	t_list *tmp;
-	t_list *prev;
-	prev = (*head);
-	while (prev->next->next)
+	t_list *current;
+	t_list *tmp = NULL;
+	current = *head;
+	tmp = listlast(*head);
+	while (current)
 	{
-		prev = prev->next;
+		if (!current->next->next)
+		{
+			current->next = NULL;
+			break;
+		}
+		current = current->next;
 	}
-	tmp = prev->next;
-	prev->next = NULL;
-	tmp->next = (*head);
-	(*head) = tmp;
+
+	listaddfront(head, tmp);
+	write(1, "rra\n", 4);
 }
