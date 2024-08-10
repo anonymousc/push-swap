@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 02:42:09 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/10 18:06:38 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/10 18:14:01 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,30 @@ void	free_stack(t_list **stack)
 		tmp = *stack;
 	}
 	stack = NULL;
+}
+
+void	max_to_top(t_list **stack, int max)
+{
+	t_list	*tmp;
+	int		i;
+
+	i = 0;
+	(*stack)->vars.size = ft_listsize(*stack);
+	tmp = *stack;
+	while (tmp)
+	{
+		if (max == tmp->data)
+			break ;
+		i++;
+		tmp = tmp->next;
+	}
+	if (i <= (*stack)->vars.size / 2)
+		while (i-- > 0)
+			rotate(stack, "rb\n");
+	else
+	{
+		i = (*stack)->vars.size - i;
+		while (i-- > 0)
+			reverse_rotate(stack, "rrb\n");
+	}
 }
