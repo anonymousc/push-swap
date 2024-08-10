@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   s_stacks.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/10 17:56:27 by aessadik          #+#    #+#             */
+/*   Updated: 2024/08/10 17:59:30 by aessadik         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../lib/push_swap.h"
 
-
-void s(t_list **stacks)
+void	swap(t_list **stacks, char *str)
 {
-	t_list *tmp;
+	t_list	*tmp;
+
 	tmp = (*stacks);
 	(*stacks) = (*stacks)->next;
 	tmp->next = (*stacks)->next;
 	(*stacks)->next = tmp;
-	write(1, "sa\n" ,3);
+	write(1, str, 3);
 }

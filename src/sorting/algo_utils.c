@@ -12,48 +12,51 @@
 
 #include "../../lib/push_swap.h"
 
-
-void sort_2(t_list **stack)
+void	sort_3(t_list **stack_a)
 {
-	if((*stack)->data > (*stack)->next->data)
-		s(stack);
+	int	first;
+	int	second;
+	int	third;
+
+	first = (*stack_a)->data;
+	second = (*stack_a)->next->data;
+	third = (*stack_a)->next->next->data;
+	if ((first < second) && (second > third) && (first < third))
+	{
+		swap(stack_a, "sa\n");
+		rotate(stack_a, "ra\n");
+	}
+	else if ((first > second) && (second < third) && (first < third))
+		swap(stack_a, "sa\n");
+	else if ((first < second) && (second > third) && (first > third))
+		reverse_rotate(stack_a, "rra\n");
+	else if ((first > second) && (second > third) && (first > third))
+	{
+		swap(stack_a, "sa\n");
+		reverse_rotate(stack_a, "rra\n");
+	}
+	else if ((first > second) && (second < third) && (first > third))
+		rotate(stack_a, "ra\n");
 }
 
-void sort_3(t_list **stack_a  , int size)
+void	sort_4(t_list **stack_a, t_list **stack_b, int *arr)
 {
-	(void) size;
-	if ((*stack_a)->data == grab_max(*stack_a))
-	{
-		r(stack_a);
-		if ((*stack_a)->data > (*stack_a)->next->data)
-			s(stack_a);
-	}
-	else if ((*stack_a)->next->data == grab_max(*stack_a ))
-	{
-		rr(stack_a);
-		if ((*stack_a)->data > (*stack_a)->next->data)
-			s(stack_a);
-	}
-	else
-		s(stack_a);
-
-}
-
-void sort_4(t_list **stack_a, t_list **stack_b, int size)
-{
-	min_to_top(stack_a);
+	min_to_top(stack_a, arr[0]);
 	pb(stack_a, stack_b);
-	sort_3(stack_a, size);
+	sort_3(stack_a);
 	pa(stack_a, stack_b);
 }
 
-void sort_5(t_list **stack_a, t_list **stack_b, int size)
+void	sort_5(t_list **stack_a, t_list **stack_b, int *arr)
 {
-	min_to_top(stack_a);
-	pb(stack_a, stack_b);
-	sort_4(stack_a,stack_b,size);
-	pa(stack_a, stack_b);
-	// pa(stack_a, stack_b);
-	// s(stack_a);
-}
+	t_list	*iter;
 
+	iter = *stack_a;
+	min_to_top(stack_a, arr[0]);
+	pb(stack_a, stack_b);
+	min_to_top(stack_a, arr[1]);
+	pb(stack_a, stack_b);
+	sort_3(stack_a);
+	pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
+}

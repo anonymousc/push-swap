@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   listaddback.c                                      :+:      :+:    :+:   */
+/*   linked_lists.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 00:52:14 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 00:52:14 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/10 18:04:08 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	listaddback(t_list **stacks, t_list *new)
 
 int	ft_listsize(t_list *head)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (head)
@@ -55,26 +55,19 @@ void	listaddfront(t_list **stack, t_list *new)
 
 t_list	*listnew(int data)
 {
-	t_list *stacks = malloc(sizeof(t_list));
+	t_list	*stacks;
+
+	stacks = malloc(sizeof(t_list));
+	if (!stacks)
+		return (NULL);
 	stacks->data = data;
 	stacks->next = NULL;
 	return (stacks);
 }
 
-t_list *listlast(t_list *stack_a)
+t_list	*listlast(t_list *stack_a)
 {
 	while (stack_a && stack_a->next)
 		stack_a = stack_a->next;
-	return stack_a;
-}
-
-void free_stack(t_list **stack)
-{
-	t_list *tmp = *stack;
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
+	return (stack_a);
 }

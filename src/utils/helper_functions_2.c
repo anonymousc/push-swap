@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:10:18 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/04 14:16:18 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/10 18:02:14 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,24 @@ char	*ft_strjoin(char *s, char *s1)
 	p[ft_strlen(s) + ft_strlen(s1)] = '\0';
 	str = p;
 	if (s)
-    {
+	{
 		while (s[i])
 			*(p++) = s[i++];
-    }
-    i = 0;
+	}
+	i = 0;
 	if (s1)
 		while (s1[i])
 			*(p++) = s1[i++];
 	free(s);
-    free(s1);
+	free(s1);
 	return (str);
 }
-long ft_atoi(char *str)
+
+long	ft_atoi(char *str, t_list **stack_a, char **ptr)
 {
-	long res;
-	int sign;
-	int i;
+	long	res;
+	int		sign;
+	int		i;
 
 	res = 0;
 	sign = 1;
@@ -53,16 +54,17 @@ long ft_atoi(char *str)
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
-			sign = -sign;	
+			sign = -sign;
 		i++;
 	}
 	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 		res = (res * 10) + str[i++] - '0';
 	res = res * sign;
-	if (res > INT_MAX || res  < INT_MIN  || str[i] != '\0')
+	if (res > INT_MAX || res < INT_MIN)
 	{
-		write(1, "Error\n" , 7);
-		exit(1);
+		free(str);
+		free(ptr);
+		return (free_stack(stack_a), write(1, "Error\n", 7), exit(1), 0);
 	}
 	return (res);
 }
@@ -119,9 +121,9 @@ char	**splitter(char *s, char c, int i)
 				word_len = ft_strchr(s, c) - s;
 			lst[i++] = ft_substr(s, 0, word_len);
 			if (!lst[i - 1])
-				return (ft_free(lst),NULL );
+				return (ft_free(lst), NULL);
 			s += word_len;
 		}
 	}
-	return (lst[i] = NULL,lst);
+	return (lst[i] = NULL, lst);
 }

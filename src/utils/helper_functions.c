@@ -6,12 +6,11 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 23:50:50 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 19:20:58 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/10 18:06:54 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib/push_swap.h"
-
 
 size_t	ft_strlen(const char *s)
 {
@@ -80,6 +79,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	}
 	return (srcs);
 }
+
 char	*ft_strdup(const char *s1)
 {
 	char	*s;

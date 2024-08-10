@@ -6,24 +6,25 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 01:02:12 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/05 01:02:12 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/10 17:58:39 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib/push_swap.h"
 
-void pa(t_list **stack_a, t_list **stack_b)
+void	pa(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
+
 	if (!(*stack_b))
 		return ;
-	tmp  = (*stack_b);
+	tmp = (*stack_b);
 	(*stack_b) = (*stack_b)->next;
 	listaddfront(stack_a, tmp);
 	write(1, "pa\n", 3);
 }
 
-void pb(t_list **stack_a, t_list **stack_b)
+void	pb(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 

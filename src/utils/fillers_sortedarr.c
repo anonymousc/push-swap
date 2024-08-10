@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 00:51:59 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/05 06:20:30 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/10 18:06:08 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,50 +20,52 @@ int	*fill_arr(t_list *stack)
 
 	i = -1;
 	size = ft_listsize(stack);
-	arr = (int *) malloc(sizeof(int) * size);
+	arr = (int *)malloc(sizeof(int) * size);
 	while (++i < size)
 	{
 		arr[i] = stack->data;
 		stack = stack->next;
 	}
+	bubble_sort(arr, size);
 	return (arr);
 }
 
-t_list *fill_stack(char **ptr)
+void	fill_stack(t_list **stack, char **ptr)
 {
-	t_list *stacks ;
-	
-	int j;
-	
+	int	j;
+	int	i;
+
 	j = 0;
-	stacks = NULL;
+	i = 0;
 	while (ptr[j])
-		listaddback(&stacks , listnew(ft_atoi(ptr[j++])));
-	return (stacks);
+	{
+		i = 0;
+		while (ptr[j][i])
+		{
+			if (ptr[j][i] == '-' || ptr[j][i] == '+')
+				i++;
+			if (!(ptr[j][i] >= '0' && ptr[j][i] <= '9'))
+			{
+				ft_free(ptr);
+				write(1, "Error\n", 7);
+				exit(1);
+			}
+			i++;
+		}
+		j++;
+	}
+	j = 0;
+	while (ptr[j])
+		listaddback(stack, listnew(ft_atoi(ptr[j++], stack, ptr)));
 }
 
-// int grab_max(t_list *stacks, int size)
-// {
-// 	int *arr = fill_arr(stacks);
-// 	arr = bubble_sort(arr , ft_listsize(stacks));
-// 	t_list *head;
-// 	size = ft_listsize(stacks);
-// 	head = stacks;
-// 	while (head)
-// 	{
-// 		if (arr[size - 1] == head->data)
-// 		{
-// 			return (head->data);
-// 		}
-// 		head = head->next;	
-// 	}
-// 	return (0);
-// }
-int grab_min(t_list *stacks)
+int	grab_min(t_list *stacks)
 {
-	t_list *head;
+	t_list	*head;
+	int		min;
+
 	head = stacks;
-	int min = head->data;
+	min = head->data;
 	while (head)
 	{
 		if (head->data < min)
@@ -73,12 +75,13 @@ int grab_min(t_list *stacks)
 	return (min);
 }
 
-
-int grab_max(t_list *stacks)
+int	grab_max(t_list *stacks)
 {
-	t_list *head;
+	t_list	*head;
+	int		max;
+
 	head = stacks;
-	int max = head->data;
+	max = head->data;
 	while (head)
 	{
 		if (head->data > max)
@@ -88,31 +91,28 @@ int grab_max(t_list *stacks)
 	return (max);
 }
 
-
-void min_to_top(t_list **stack)
+void	min_to_top(t_list **stack, int min)
 {
-	t_list *tmp ;
-	int pos = -1;
-	int i = -1;
-	int size = ft_listsize(*stack);
+	t_list	*tmp;
+	int		i;
+
+	i = 0;
+	(*stack)->vars.size = ft_listsize(*stack);
 	tmp = *stack;
-	while(tmp)
+	while (tmp)
 	{
-		++pos;
-		if (tmp->data == grab_min(tmp))
-			break;
+		if (min == tmp->data)
+			break ;
+		i++;
 		tmp = tmp->next;
 	}
-	tmp = *stack;
-	while (++i < pos)
+	if (i <= (*stack)->vars.size / 2)
+		while (i-- > 0)
+			rotate(stack, "ra\n");
+	else
 	{
-		if (pos < size / 2)
-			r(stack);
+		i = (*stack)->vars.size - i;
+		while (i-- > 0)
+			reverse_rotate(stack, "rra\n");
 	}
-	while (++i <= size)
-	{
-		if (pos > size / 2)
-			rr(stack);
-	}
-	
 }

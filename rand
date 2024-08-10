@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo $(python3 -c "import random ;numlst = list(range($1)) ;random.shuffle(numlst) ;print(' '.join(list(map(str, numlst))))")
