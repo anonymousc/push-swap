@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 00:51:37 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/03 00:51:37 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/11 14:12:44 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,6 @@ void	sort_4(t_list **stack_a, t_list **stack_b, int *arr)
 
 void	sort_5(t_list **stack_a, t_list **stack_b, int *arr)
 {
-	t_list	*iter;
-
-	iter = *stack_a;
 	min_to_top(stack_a, arr[0]);
 	pb(stack_a, stack_b);
 	min_to_top(stack_a, arr[1]);

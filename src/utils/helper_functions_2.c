@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:10:18 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/10 18:02:14 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/11 13:57:00 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ long	ft_atoi(char *str, t_list **stack_a, char **ptr)
 	res = res * sign;
 	if (res > INT_MAX || res < INT_MIN)
 	{
-		free(str);
-		free(ptr);
+		ft_free(ptr);
 		return (free_stack(stack_a), write(1, "Error\n", 7), exit(1), 0);
 	}
 	return (res);
