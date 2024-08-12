@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:10:18 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/11 13:57:00 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/13 00:43:44 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ char	*ft_strjoin(char *s, char *s1)
 	return (str);
 }
 
-long	ft_atoi(char *str, t_list **stack_a, char **ptr)
+long long	ft_atoi(char *str, t_list **stack_a, char **ptr)
 {
-	long	res;
-	int		sign;
-	int		i;
+	long long	res;
+	int			sign;
+	int			i;
 
 	res = 0;
 	sign = 1;
@@ -60,7 +60,8 @@ long	ft_atoi(char *str, t_list **stack_a, char **ptr)
 	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 		res = (res * 10) + str[i++] - '0';
 	res = res * sign;
-	if (res > INT_MAX || res < INT_MIN)
+	if ((unsigned long long)res > INT_MAX || res < INT_MIN
+		|| (unsigned long long)res >= ULLONG_MAX)
 	{
 		ft_free(ptr);
 		return (free_stack(stack_a), write(1, "Error\n", 7), exit(1), 0);

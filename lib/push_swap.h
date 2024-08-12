@@ -6,7 +6,7 @@
 /*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 00:51:39 by aessadik          #+#    #+#             */
-/*   Updated: 2024/08/11 14:13:43 by aessadik         ###   ########.fr       */
+/*   Updated: 2024/08/13 00:32:49 by aessadik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_list				*listlast(t_list *stack_a);
 char				*ft_strjoin(char *s, char *s1);
 void				free_arr(int **arr, int size);
 void				ft_free(char **str);
-long				ft_atoi(char *str, t_list **stack_a, char **ptr);
+long long			ft_atoi(char *str, t_list **stack_a, char **ptr);
 char				**splitter(char *s, char c, int i);
 size_t				ft_countword(char *s, char c);
 
