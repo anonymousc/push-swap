@@ -1,4 +1,3 @@
-
 # push_swap
 
 A sorting algorithm implementation using two stacks and a limited set of operations, written in C.
